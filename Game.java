@@ -80,6 +80,8 @@ public class Game
         
         //choose the items' locations
         pub.addItem(cheesepuff);
+        office.addItem(stapler);
+        hell.addItem(sins);
         
         currentRoom = outside;  // start game outside
     }
