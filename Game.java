@@ -45,10 +45,7 @@ public class Game
         sewer = new Room("in the sewer under the lab");
         cavern = new Room("in the cavern. Its dark down here");
         hell = new Room("in hell. you went so low you are now in the underworld.");
-        
-        //initiate room items
-        
-        
+                
         // initialise room exits
         outside.setExit("east", theater);
         outside.setExit("south", lab);
@@ -74,9 +71,19 @@ public class Game
 
         hell.setExit("up", cavern);
         
+        //Attempted to make these two separate methods but it wouldn't work :,(
+        
+        // create the items
+        Item cheesepuff = new Item("cheese puff", "light", "A singular cheese puff surrounded by an army of ants");
+        Item stapler = new Item("stapler", "medium", "A stapler from the office. You should be careful with this.");
+        Item sins = new Item("sins", "heavy", "Repent.");
+        
+        //choose the items' locations
+        pub.addItem(cheesepuff);
+        
         currentRoom = outside;  // start game outside
     }
-
+    
     /**
     *  Main play routine.  Loops until end of play.
     */
