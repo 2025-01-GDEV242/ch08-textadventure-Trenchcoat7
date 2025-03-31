@@ -51,4 +51,13 @@ public class Item
         return description;
     
     }
+    
+    /**
+     * Return a string representation of the item.
+     * @return A formatted string describing the item.
+     */
+    public String toString() {
+        return name + " " + weight + " " + description;
+    }
+
 }

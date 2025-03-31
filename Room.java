@@ -52,6 +52,29 @@ public class Room
         items.put(item.getName(), item);
     }
     
+     /**
+     * Remove item from a room
+     * @param itemName name of item you're removing
+     * @return the item or null if not found
+     */
+    public Item removeItem(String itemName) {
+        return items.remove(itemName);
+    }
+    
+    /**
+     * Give info on the item in the room, if there is one.
+     * @return A String decription of the item.
+     */
+    private String getItemInfo() {
+        if (items.isEmpty()) {
+            return "looks like there's nothing here.";
+        }
+        String returnString = "Items: ";
+        for (Item item : items.values()) {
+            returnString += item.getName() + " ";
+        }
+        return returnString;
+    }
     
     /**
      * @return The short description of the room
