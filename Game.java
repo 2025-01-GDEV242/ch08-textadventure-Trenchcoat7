@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -22,16 +20,6 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     
-    public void itemList(String[] args){
-    
-        ArrayList<String> items = new ArrayList<String>();
-    
-        items.add("Potato Chip");
-        items.add("Preserved Eyeball");
-        items.add("Stapler");
-        
-    }
-        
     /**
      * Create the game and initialise its internal map.
      */
@@ -57,6 +45,9 @@ public class Game
         sewer = new Room("in the sewer under the lab");
         cavern = new Room("in the cavern. Its dark down here");
         hell = new Room("in hell. you went so low you are now in the underworld.");
+        
+        //initiate room items
+        
         
         // initialise room exits
         outside.setExit("east", theater);
