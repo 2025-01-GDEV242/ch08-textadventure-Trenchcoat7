@@ -22,7 +22,15 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     
-    ArrayList<String> items = new ArrayList<>();
+    public void itemList(String[] args){
+    
+        ArrayList<String> items = new ArrayList<String>();
+    
+        items.add("Potato Chip");
+        items.add("Preserved Eyeball");
+        items.add("Stapler");
+        
+    }
         
     /**
      * Create the game and initialise its internal map.
