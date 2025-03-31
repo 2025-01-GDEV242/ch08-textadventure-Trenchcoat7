@@ -22,7 +22,7 @@ public class Game
     
     /**
      * Create the game and initialise its internal map.
-     */
+    */
     public Game() 
     {
         createRooms();
@@ -31,7 +31,7 @@ public class Game
 
     /**
      * Create all the rooms and link their exits together.
-     */
+    */
     private void createRooms()
     {
         Room outside, theater, pub, lab, office, sewer, cavern, hell;
@@ -78,8 +78,8 @@ public class Game
     }
 
     /**
-     *  Main play routine.  Loops until end of play.
-     */
+    *  Main play routine.  Loops until end of play.
+    */
     public void play() 
     {            
         printWelcome();
@@ -96,8 +96,8 @@ public class Game
     }
 
     /**
-     * Print out the opening message for the player.
-     */
+    * Print out the opening message for the player.
+    */
     private void printWelcome()
     {
         System.out.println();
