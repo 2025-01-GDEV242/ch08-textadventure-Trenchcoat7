@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -19,6 +21,8 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    
+    ArrayList<String> items = new ArrayList<>();
         
     /**
      * Create the game and initialise its internal map.
