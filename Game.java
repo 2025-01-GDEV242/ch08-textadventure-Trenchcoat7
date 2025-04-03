@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -19,6 +20,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private ArrayList<Room> roomHistory;
     
     /**
      * Create the game and initialise its internal map.
@@ -152,6 +154,45 @@ public class Game
         return wantToQuit;
     }
 
+    /**
+     * Allows the player to go back to the previous room they were in
+     * @param command The command to be processed
+     */
+    void back(Command command)
+    {
+                if(roomHistory.size() <= 1)
+        {
+            System.out.println("You can't go any further back!");
+            return;
+        }
+        
+        if(!command.hasSecondWord()) {
+            currentRoom = (roomHistory.get(roomHistory.size() - 2));
+            roomHistory.remove((roomHistory.size() - 1));
+            roomHistory.remove((roomHistory.size() - 1));
+            System.out.println(currentRoom.getLongDescription());
+            return;
+        }
+
+        int howFarBack = Integer.parseInt(command.getSecondWord());
+        if (howFarBack < roomHistory.size())
+        {
+            Room nextRoom = roomHistory.get(roomHistory.size() - (1 + howFarBack));
+            for(int i = 0; i < howFarBack; i++)
+            {
+                roomHistory.remove(roomHistory.size() - (1+i));
+            }
+            currentRoom = nextRoom;
+            System.out.println(currentRoom.getLongDescription());
+            roomHistory.add(currentRoom);
+            
+       
+        }else
+        {
+            System.out.println("You can't go back that far.");
+            System.out.println("You can go back " + (roomHistory.size() - 1) + " Steps.");
+        }
+    }
     // implementations of user commands:
 
     /**
