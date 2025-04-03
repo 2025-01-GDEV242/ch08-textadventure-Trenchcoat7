@@ -12,14 +12,15 @@ import java.util.Iterator;
  * connected to other rooms via exits.  For each existing exit, the room 
  * stores a reference to the neighboring room.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author  Katie Strong
+ * @version 2025.3.31
  */
 
 public class Room 
 {
     private String description;
-    private HashMap<String, Room> exits;        // stores exits of this room.
+    private HashMap<String, Room> exits;        // stores exits of this room
+    private HashMap<String, Item> items;        // stores items of this room
 
     /**
      * Create a room described "description". Initially, it has
@@ -31,6 +32,7 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<>();
+        items = new HashMap<>();
     }
 
     /**
@@ -42,7 +44,39 @@ public class Room
     {
         exits.put(direction, neighbor);
     }
-
+    
+    /**
+     * Add an item to a room
+     * @param item ... the item being added
+     */
+     public void addItem(Item item) {
+        items.put(item.getName(), item);
+    }
+    
+     /**
+     * Remove item from a room
+     * @param itemName name of item you're removing
+     * @return the item or null if not found
+     */
+    public Item removeItem(String itemName) {
+        return items.remove(itemName);
+    }
+    
+    /**
+     * Give info on the item in the room, if there is one.
+     * @return A String decription of the item.
+     */
+    private String getItemInfo() {
+        if (items.isEmpty()) {
+            return "looks like there's nothing here.";
+        }
+        String returnString = "Items: ";
+        for (Item item : items.values()) {
+            returnString += item.getName() + " ";
+        }
+        return returnString;
+    }
+    
     /**
      * @return The short description of the room
      * (the one that was defined in the constructor).
